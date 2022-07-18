@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>To-do</title>
+  </head>
+  <body>
+    <div id="container">
+      <div id="left"></div>
+      <div id="right"></div>
+      <div id="center">
+        <div id="input">
+          <h2>Task</h2>
+          <form action="javascript:void(0);">
+            <input type="text" name="item-text" id="item-text" />
+            <button onclick="submit_button();">Submit</button>
+          </form>
+        </div>
+        <div id="error-message" hidden>
+          <!--This will be used to show an error message to users-->
+          <p>Please enter some text in the input area!</p>
+        </div>
+        <div id="item">
+          <ul id="to-do-items"></ul>
+        </div>
+      </div>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>

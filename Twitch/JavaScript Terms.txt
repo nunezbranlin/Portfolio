@@ -1,0 +1,15 @@
+- let (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let)
+
+- const (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const)
+
+- document (https://developer.mozilla.org/en-US/docs/Web/API/Document)
+
+- querySelector (https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector)
+
+- functions (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function)
+
+- variables (https://developer.mozilla.org/en-US/docs/Glossary/Variable)
+
+- innerText (https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/innerText)
+
+- Math (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math)

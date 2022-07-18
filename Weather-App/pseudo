@@ -1,0 +1,21 @@
+Background
+
+Changes with the users location or input, searches for images related to the searched location/current location
+Back it so the images in the background dont interfere with the text and is and will be read able with any image selected
+
+Search bar
+
+Clickable/interactive
+able to type in any city
+have the feature of giving suggestions below the text of cities along with auto complete
+have at top of screen
+i want text thats see-able but not bold
+default location which I'll like to be able to geo-locate the user. location will be at the top of the screen
+
+Text on screen
+
+Day, date, month and year
+current temp
+Temp hi/low for the day
+tells user if its sunny, raining, etc.
+shows user that dates hi/low temp of that day

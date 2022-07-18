@@ -1,0 +1,28 @@
+.headtext {
+  color: darkmagenta;
+}
+body {
+  background: grey;
+}
+main div {
+  border-style: ridge;
+}
+.box {
+  flex-basis: 20%;
+  color: white;
+}
+@media (min-width: 768px) {
+  main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+}
+@media (max-width: 765px) {
+  main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    flex-direction: column;
+  }
+}
