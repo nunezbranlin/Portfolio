@@ -1,0 +1,105 @@
+{
+  "sections": [
+    {
+      "displayname": "Candidate Information",
+      "fields": [
+        "Candidate Name",
+        "Phone",
+        "Email",
+        "Mailing Address",
+        "Status",
+        "Interview Score (1-30)",
+        "Recruiter Notes",
+        "Cohort"
+      ]
+    },
+    {
+      "displayname": "Recruitment",
+      "fields": [
+        "State/ WFB",
+        "Referral Source",
+        "Notified Funder",
+        "Location",
+        "Funder",
+        "Case Manager Assigned",
+        "Student ID",
+        "Invoiced",
+        "Laptop?",
+        "Welcome Packet"
+      ]
+    },
+    {
+      "displayname": "Onboarding",
+      "fields": [
+        "Acceptance Letter Sent",
+        "Next Steps Sent",
+        "Financial Analysis",
+        "Signed Handbook",
+        "IT equipment (survey/ funder)",
+        "Receipt Emailed",
+        "TW App",
+        "Attended Orientation?",
+        "Orientation Notes",
+        "Invoiced %"
+      ]
+    },
+    {
+      "displayname": "Credentials",
+      "fields": [
+        "ITF Voucher",
+        "ITF - Exam Score",
+        "1001  Voucher",
+        "1001 - Exam Score",
+        "1002  Voucher",
+        "1002 - Exam Score"
+      ]
+    },
+    {
+      "displayname": "Student Progress & Notes",
+      "fields": [
+        "Week 1",
+        "Week 1 Notes",
+        "Week 2",
+        "Week 2 Notes",
+        "Week 3",
+        "Week 3 Notes",
+        "Week 4",
+        "Week 4 Notes",
+        "Week 5",
+        "Week 5 Notes",
+        "Week 6",
+        "Week 6 Notes",
+        "Week 7",
+        "Week 7 Notes",
+        "Week 8",
+        "Week 8 Notes",
+        "Week 9",
+        "Week 9 Notes",
+        "Week 10",
+        "Week 10 Notes",
+        "Week 11",
+        "Week 11 Notes",
+        "Week 12",
+        "Week 12 Notes"
+      ]
+    },
+    {
+      "displayname": "Program Follow up",
+      "fields": [
+        "Career Readiness Certificate (score?)",
+        "Update Resume",
+        "Mock Interview",
+        "Notes",
+        "Employment interest",
+        "Employment notes",
+        "Updated resume on file",
+        "Employed (Y/N)",
+        "Employer",
+        "Job Title",
+        "Start Date",
+        "Hours/Wk",
+        "Wage"
+      ]
+    }
+  ]
+}
