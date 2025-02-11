@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
+    <!-- Dark Mode check before body -->
+    <script>
+        // Ensure dark mode is applied immediately when page loads
+        window.addEventListener('DOMContentLoaded', (event) => {
+            if (localStorage.getItem("darkMode") === "enabled") {
+                document.body.classList.add("dark-mode");
+            }
+        });
+    </script>
+</head>
+<body>
+
+    <!-- Dark Mode Toggle Button -->
+    <button class="toggle-btn" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+
+    <div class="container">
+        <h1>Inventory Dashboard</h1>
+
+        <!-- Search Bar -->
+        <input type="text" id="searchBar" placeholder="Search products..." onkeyup="filterProducts()">
+
+        <!-- Form to add products -->
+        <form action="/add" method="POST">
+            <label for="name">Product Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" name="quantity" required>
+
+            <label for="price">Price:</label>
+            <input type="number" step="0.01" id="price" name="price" required>
+
+            <button type="submit">Add Product</button>
+        </form>
+
+        <!-- Product List -->
+        <h2>Product List</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for product in products %}
+                <tr class="{% if product.quantity == 0 %}out-of-stock{% elif product.quantity < 5 %}low-stock{% endif %}">
+                    <td>{{ product.id }}</td>
+                    <td>{{ product.name }}</td>
+                    <td>{{ product.quantity }}</td>
+                    <td>${{ product.price }}</td>
+                    <td>
+                        {% if product.quantity == 0 %}
+                            <span class="out-of-stock-text">❌ Out of Stock</span>
+                        {% elif product.quantity < 5 %}
+                            <span class="low-stock-warning">⚠️ Low Stock</span>
+                        {% else %}
+                            ✅ In Stock
+                        {% endif %}
+                    </td>
+                    <td>
+                        <form action="/delete/{{ product.id }}" method="POST" onsubmit="return confirm('Are you sure?');">
+                            <button class="delete-btn">❌ Delete</button>
+                        </form>
+                        <!-- Add Restock Button -->
+                        <button class="restock-btn" onclick="restockProduct('{{ product.id }}')">🔄 Restock</button>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <!-- Inventory Chart -->
+        <h2>Inventory Chart</h2>
+        <div id="chart"></div>
+    </div>
+
+    <!-- Plotly Chart -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script>
+        // Ensure chart data is rendered if available
+        var chartData = JSON.parse('{{ chart_json|tojson|safe }}');
+        if (Object.keys(chartData).length !== 0) {
+            Plotly.newPlot('chart', chartData.data, chartData.layout);
+        } else {
+            document.getElementById('chart').innerHTML = "<p>No inventory data available.</p>";
+        }
+
+        // Function to toggle Dark Mode and save preference in localStorage
+        function toggleDarkMode() {
+            // Toggle the dark-mode class on the body element
+            document.body.classList.toggle("dark-mode");
+
+            // Save dark mode state in localStorage
+            if (document.body.classList.contains("dark-mode")) {
+                localStorage.setItem("darkMode", "enabled");
+            } else {
+                localStorage.removeItem("darkMode");
+            }
+        }
+
+        // Function to filter products in the table
+        function filterProducts() {
+            let input = document.getElementById("searchBar").value.toLowerCase();
+            let rows = document.querySelectorAll("tbody tr");
+
+            rows.forEach(row => {
+                let productName = row.cells[1].textContent.toLowerCase();
+                if (productName.includes(input)) {
+                    row.style.display = "";
+                } else {
+                    row.style.display = "none";
+                }
+            });
+        }
+
+        // Function to prompt user for restocking and update the stock
+        function restockProduct(productId) {
+            let newQuantity = prompt("Enter the new stock quantity:", 10);
+            newQuantity = parseFloat(newQuantity); // Convert to a number
+
+            if (!isNaN(newQuantity) && newQuantity >= 0) {
+                console.log("Sending stock update for product ID:", productId, "New Quantity:", newQuantity);
+
+                fetch(`/restock/${productId}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ quantity: newQuantity })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                    if (data.success) {
+                        location.reload();  // Refresh the page to show the updated quantity
+                    } else {
+                        alert(data.message || "Failed to restock the product.");
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert("Error updating the stock.");
+                });
+            } else {
+                alert("Invalid quantity. Please enter a valid number.");
+            }
+        }
+    </script>
+
+</body>
+</html>

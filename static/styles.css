@@ -1,0 +1,181 @@
+/* General Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Container */
+.container {
+    width: 90%;
+    max-width: 700px;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Search Bar */
+#searchBar {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Titles */
+h1 {
+    color: #007bff;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background: #007bff;
+    color: white;
+    font-size: 16px;
+}
+
+/* Table Hover Effect */
+tbody tr:hover {
+    background-color: #f1f1f1;
+    cursor: pointer;
+}
+
+/* Improve button styles */
+button {
+    padding: 10px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.1s;
+}
+
+button:hover {
+    background: #0056b3;
+    transform: scale(1.05);
+}
+
+/* Delete Button */
+.delete-btn {
+    background-color: #dc3545;
+    color: white;
+}
+
+.delete-btn:hover {
+    background-color: #c82333;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: #333;
+    color: white;
+}
+
+body.dark-mode .container {
+    background: #444;
+}
+
+body.dark-mode h1, body.dark-mode h2 {
+    color: #ffbb33;
+}
+
+body.dark-mode table {
+    background-color: #555;
+    color: white;
+}
+
+body.dark-mode th {
+    background: #444;
+}
+
+body.dark-mode td {
+    background: #666;
+}
+
+body.dark-mode tr:nth-child(even) {
+    background: #777;
+}
+
+/* Dark Mode Chart */
+.dark-mode #chart {
+    background: #444;
+    box-shadow: none;
+}
+
+/* Dark Mode Toggle Button */
+.toggle-btn {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    padding: 10px;
+    cursor: pointer;
+    background-color: #444;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+/* Highlight low-stock items */
+.low-stock {
+    background-color: #ffcccc !important;  /* Light red background */
+    color: #900;
+    font-weight: bold;
+}
+
+/* Low stock warning text */
+.low-stock-warning {
+    color: #d9534f;
+    font-weight: bold;
+}
+/* Low Stock Highlight */
+.low-stock {
+    background-color: #ffdddd !important;  /* Light red background */
+    color: #900;
+    font-weight: bold;
+}
+
+/* Low Stock Warning Text */
+.low-stock-warning {
+    color: #d9534f;
+    font-weight: bold;
+}
+
+/* Out of Stock Highlight */
+.out-of-stock {
+    background-color: #ff0000 !important;  /* Dark red background */
+    color: white !important;
+    font-weight: bold;
+}
+
+/* Out of Stock Warning Text */
+.out-of-stock-text {
+    color: white;
+    font-weight: bold;
+}
